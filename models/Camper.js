@@ -2,8 +2,8 @@ import { Schema, model } from "mongoose";
 import { handelSaveError, setUpdateSettings } from "./hooks.js";
 
 const camperSchema = new Schema({
-    id: {
-        type: Number
+    _id: {
+        type: String
     },
     name: {
         type: String,
