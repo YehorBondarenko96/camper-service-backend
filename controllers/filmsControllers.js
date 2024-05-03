@@ -3,7 +3,12 @@ import decForFn from "../decorators/decForFuncs.js";
 import HttpError from "../helpers/HttpError.js";
 
 const getAllFilms = async (req, res) => {
-    const result = await filmsService.listFilms();
+    const messyResult = await filmsService.listFilms();
+    const page = Number(req.body.page || '1');
+    const pageSize = 4; 
+    const startIdx = (page - 1) * pageSize;
+    const endIdx = startIdx + pageSize;
+    const result = messyResult.slice(startIdx, endIdx);
     
     res.json(result);
 };
