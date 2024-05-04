@@ -7,9 +7,9 @@ export const createFilmSchema = Joi.object({
     owner: Joi.string(),
 })
 
-export const updateFilmSchema = Joi.object({
+export const bookingSchema = Joi.object({
     name: Joi.string(),
     email: Joi.string().pattern(new RegExp(/^[^\s@]+@[^\s@]+\.[^\s@]+$/)),
-    phone: Joi.string().pattern(/^[+\-\d()]+$/),
-    owner: Joi.string(),
+    date: Joi.string(),
+    comment: Joi.string(),
 })

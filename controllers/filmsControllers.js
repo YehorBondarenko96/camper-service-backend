@@ -23,7 +23,15 @@ const getOneFilm = async (req, res) => {
     res.json(result);
 };
 
+const postNewBooking = async (req, res) => { 
+    const data = req.body;
+    const newBooking = await filmsService.postBooking(data);
+
+    res.status(201).json(newBooking)
+};
+
 export default {
     getAllFilms: decForFn(getAllFilms),
-    getOneFilm: decForFn(getOneFilm)
+    getOneFilm: decForFn(getOneFilm),
+    postNewBooking: decForFn(postNewBooking)
 }
