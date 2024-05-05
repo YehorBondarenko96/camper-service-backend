@@ -9,9 +9,9 @@ const bookingSchema = new Schema({
     },
     email: {
         type: String,
-        required: [true, 'Email is required'],
-        unique: true,
-        match: emailRegexp
+        // required: [true, 'Email is required'],
+        unique: false,
+        // match: emailRegexp
     },
     date: {
         type: String
@@ -23,6 +23,8 @@ const bookingSchema = new Schema({
       type: Object
     }
 }, { versionKey: false, timestamps: true });
+
+bookingSchema.index({ email: 1 }, { unique: false });
 
 bookingSchema.post("save", handelSaveError);
 

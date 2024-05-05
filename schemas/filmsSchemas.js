@@ -11,6 +11,6 @@ export const bookingSchema = Joi.object({
     name: Joi.string(),
     email: Joi.string().pattern(new RegExp(/^[^\s@]+@[^\s@]+\.[^\s@]+$/)),
     date: Joi.string(),
-    comment: Joi.string(),
+    comment: Joi.string().allow(''),
     camper: Joi.object()
 })
