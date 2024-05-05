@@ -26,6 +26,9 @@ const getOneFilm = async (req, res) => {
 const postNewBooking = async (req, res) => { 
     const data = req.body;
     const newBooking = await filmsService.postBooking(data);
+    if (!newBooking) {
+        throw HttpError(404);
+    }
 
     res.status(201).json(newBooking)
 };

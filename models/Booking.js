@@ -18,6 +18,9 @@ const bookingSchema = new Schema({
     },
     comment: {
         type: String
+  },
+  camper: {
+      type: Object
     }
 }, { versionKey: false, timestamps: true });
 
