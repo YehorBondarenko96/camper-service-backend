@@ -4,7 +4,7 @@ import HttpError from "../helpers/HttpError.js";
 
 const getAllFilms = async (req, res) => {
     const messyResult = await filmsService.listFilms();
-    const page = Number(req.body.page || '1');
+    const page = Number(req.query.page || '1');
     const pageSize = 4; 
     const startIdx = (page - 1) * pageSize;
     const endIdx = startIdx + pageSize;
